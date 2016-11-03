@@ -1,0 +1,1 @@
+heroku deploy:jar -i worker-service/target/worker-service-0.0.1-SNAPSHOT.jar -j web-service/target/web-service-0.0.1-SNAPSHOT.jar --app exampledriven-springboot-dev

@@ -1,0 +1,19 @@
+server:
+  port: 8080
+worker:
+  scheme: http
+  host: localhost
+  port: 8081
+logging:
+  level:
+    org.exampledriven: DEBUG
+
+---
+spring:
+    profiles: heroku
+server:
+  port: ${PORT}
+worker:
+  scheme: https
+  host: ${WORKER_HOST}
+  port: 443
