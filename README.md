@@ -5,10 +5,10 @@
 ``` shell
 heroku login
 #This step is only required if the applications are not yet created
-heroku create <<WEB SERVICE NAME>> --no-remote
-heroku create <<WORKER SERVICE NAME>> --no-remote
+heroku create <WEB SERVICE NAME> --no-remote
+heroku create <WORKER SERVICE NAME> --no-remote
 
-heroku config:set WORKER_HOST=<<WORKER SERVICE NAME>>.herokuapp.com
+heroku config:set WORKER_HOST=<WORKER SERVICE NAME>.herokuapp.com
 ```
 
 
@@ -17,9 +17,9 @@ heroku config:set WORKER_HOST=<<WORKER SERVICE NAME>>.herokuapp.com
 heroku plugins:install heroku-cli-deploy
 mvn clean install
 cd web-service
-heroku deploy:jar target/web-service-0.0.1-SNAPSHOT.jar --app <<WEB SERVICE NAME>>
+heroku deploy:jar target/web-service-0.0.1-SNAPSHOT.jar --app <WEB SERVICE NAME>
 cd ../worker-service
-heroku deploy:jar target/worker-service-0.0.1-SNAPSHOT.jar --app <<WORKER SERVICE NAME>>
+heroku deploy:jar target/worker-service-0.0.1-SNAPSHOT.jar --app <WORKER SERVICE NAME>
 ```
 
 ## Deploy using maven without installing heroku CLI
@@ -41,8 +41,8 @@ mvn heroku:deploy
 
 ## Checking logs
 ``` shell
-heroku logs --tail --app <<WEB SERVICE NAME>>
-heroku logs --tail --app <<WORKER SERVICE NAME>>
+heroku logs --tail --app <WEB SERVICE NAME>
+heroku logs --tail --app <WORKER SERVICE NAME>
 ```
 
 
