@@ -1,6 +1,19 @@
 [![Build Status](https://travis-ci.org/ExampleDriven/spring-boot-heroku-example.svg?branch=master)](https://travis-ci.org/ExampleDriven/spring-boot-heroku-example)
 
-## Prerequisites
+## Deploy using git
+``` shell
+#Download an empty spring boot application
+curl https://start.spring.io/starter.tgz -d style=web -d style=actuator -d name=heroku-example | tar -xzvf -
+
+git init
+git add .
+git commit -m "initial commit"
+
+heroku create
+git push heroku master
+```
+
+## Prerequisites for deploying without git
 
 ``` shell
 heroku login
@@ -12,7 +25,7 @@ heroku config:set WORKER_HOST=<WORKER SERVICE NAME>.herokuapp.com
 ```
 
 
-## Deploy using heroku CLI
+## Deploy using heroku CLI deploy
 ``` shell
 heroku plugins:install heroku-cli-deploy
 mvn clean install
@@ -24,6 +37,13 @@ heroku deploy:jar target/worker-service-0.0.1-SNAPSHOT.jar --app <WORKER SERVICE
 
 ## Deploy using maven without installing heroku CLI
 The application name is written into the pom.xml, it should be updated to match the application names created above
+In this example the heroku plugin is moved to a build profile called heroku that can be activated using
+``` shell
+mvn clean install -Pheroku
+```
+
+The non profile version would work like this
+
 ``` shell
 cd web-service
 HEROKU_API_KEY="xxx-xxx-xxxx" mvn heroku:deploy
