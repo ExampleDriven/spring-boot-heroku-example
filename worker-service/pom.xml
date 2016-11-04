@@ -100,7 +100,7 @@
                         </configuration>
                         <executions>
                             <execution>
-                                <phase>install</phase>
+                                <phase>verify</phase>
                                 <goals>
                                     <goal>deploy</goal>
                                 </goals>
