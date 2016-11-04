@@ -23,7 +23,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
-        <full-artifact-name>${basedir}/target/${project.artifactId}-${project.version}.jar</full-artifact-name>
+        <full-artifact-name>target/${project.artifactId}-${project.version}.jar</full-artifact-name>
     </properties>
 
     <dependencies>
@@ -91,7 +91,7 @@
                             <appName>exampledriven-springworker-dev</appName>
                             <includeTarget>false</includeTarget>
                             <includes>
-                                <include>${full-artifact-name}</include>
+                                <include>${basedir}/${full-artifact-name}</include>
                             </includes>
                             <jdkVersion>1.8</jdkVersion>
                             <processTypes>
